@@ -1,8 +1,8 @@
 {
-    "name": "frontend-foundation",
-    "version": "0.1.0",
+    "name": "frontend-foundation-http-swap-demo",
+    "version": "1.0.0",
     "private": false,
-    "description": "A production-grade, swap-safe Next.js frontend foundation",
+    "description": "Demonstrate transport swapping (fetch → axios) with zero UI changes",
     "license": "MIT",
     "scripts": {
         "dev": "next dev",
@@ -12,6 +12,7 @@
     },
     "dependencies": {
         "@reduxjs/toolkit": "^2.2.3",
+        "axios": "^1.13.2",
         "clsx": "^2.1.1",
         "next": "^14.2.0",
         "next-themes": "^0.4.6",

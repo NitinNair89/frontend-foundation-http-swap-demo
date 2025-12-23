@@ -1,51 +1,44 @@
+"use client";
+
+import { axiosClient } from "@/clients/axios.client";
+import { fetchClient } from "@/clients/fetch.client";
+import { setHttpClient } from "@/clients/registry";
 import { FeatureCard } from "@/components/FeatureCard";
+import { usePosts } from "@/hooks/usePosts";
 
-const FEATURES = [
-	{
-		title: "Architecture & Boundaries",
-		description:
-			"How the app enforces swap-ability across state, transport, and CMS layers.",
-		href: "https://github.com/NitinNair89/frontend-foundation/blob/main/docs/architecture.md",
-	},
-	{
-		title: "Tailwind Architecture",
-		description:
-			"Token-driven theming and component-layer composition without utility bloat.",
-		href: "https://github.com/NitinNair89/frontend-foundation/blob/main/docs/tailwind-architecture.md",
-	},
-	{
-		title: "Theming System",
-		description:
-			"Light/dark mode powered by design tokens aligned with Figma variables.",
-		href: "https://github.com/NitinNair89/frontend-foundation/blob/main/docs/theming.md",
-	},
-	{
-		title: "State & Data Isolation",
-		description:
-			"How the frontend stays decoupled from transport and storage mechanisms.",
-		href: "https://github.com/NitinNair89/frontend-foundation/blob/main/docs/state-and-data.md",
-	},
-];
+export default function Home() {
+	const { posts, loading, reload } = usePosts();
 
-export default function HomePage() {
+	function switchToFetch() {
+		setHttpClient(fetchClient);
+		reload();
+	}
+
+	function switchToAxios() {
+		setHttpClient(axiosClient);
+		reload();
+	}
+
 	return (
-		<section className="page-container">
-			<h1 className="page-title">Frontend Foundation</h1>
-			<p className="page-subtitle">
-				A production-grade Next.js starter focused on architecture,
-				swap-ability, and long-term maintainability.
-			</p>
-
-			<div className="feature-grid">
-				{FEATURES.map((feature) => (
-					<FeatureCard
-						key={feature.title}
-						title={feature.title}
-						description={feature.description}
-						href={feature.href}
-					/>
-				))}
+		<main>
+			<div className="box btn-group">
+				<button className="btn" onClick={switchToFetch}>
+					Use Fetch
+				</button>
+				<button className="btn" onClick={switchToAxios}>
+					Use Axios
+				</button>
 			</div>
-		</section>
+
+			{loading && <p>Loading…</p>}
+
+			<ul>
+				{posts.map((p) => (
+					<li key={p.id}>
+						<FeatureCard title={p.title} description={p.body} />
+					</li>
+				))}
+			</ul>
+		</main>
 	);
 }

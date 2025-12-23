@@ -1,16 +1,13 @@
-import Link from "next/link";
-
 type FeatureCardProps = {
 	title: string;
 	description: string;
-	href: string;
 };
 
-export function FeatureCard({ title, description, href }: FeatureCardProps) {
+export function FeatureCard({ title, description }: FeatureCardProps) {
 	return (
-		<Link href={href} target="_blank" className="feature-card">
-			<h2 className="feature-title">{title}</h2>
+		<article className="feature-card">
+			<h3 className="feature-title">{title}</h3>
 			<p className="feature-description">{description}</p>
-		</Link>
+		</article>
 	);
 }

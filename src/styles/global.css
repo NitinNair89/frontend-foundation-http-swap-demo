@@ -29,19 +29,37 @@
 		--border-subtle: 216 34% 17%;
 		--action-hover: 223 47% 20%;
 	}
+
+	body {
+		padding: 16px;
+	}
 }
 
 @layer components {
+	.box {
+		@apply flex items-center px-4;
+	}
+
 	.app-header {
-		@apply flex h-14 items-center justify-end px-6 bg-surface;
+		@apply flex h-14 items-center justify-between px-6 bg-surface;
+	}
+
+	.btn-group {
+		.btn:last-of-type {
+			margin-left: 8px;
+		}
 	}
 
 	.btn {
 		@apply inline-flex items-center rounded-md border border-border-subtle px-3 py-1 text-sm text-primary transition;
 	}
 
-	.btn-ghost {
-		@apply hover:bg-action-hover;
+	.btn:hover {
+		@apply hover:bg-blue-600 hover:text-white;
+	}
+
+	.btn:focus {
+		@apply focus:bg-blue-600 focus:text-white border-none outline-offset-4 outline-blue-600;
 	}
 
 	.page-container {
@@ -52,16 +70,12 @@
 		@apply text-4xl font-semibold tracking-tight text-primary;
 	}
 
-	.page-subtitle {
-		@apply mt-4 text-lg text-secondary;
-	}
-
 	.feature-grid {
 		@apply mt-12 grid gap-6 sm:grid-cols-2;
 	}
 
 	.feature-card {
-		@apply block rounded-lg border border-border-subtle bg-surface p-6 transition hover:bg-surface-subtle;
+		@apply block rounded-lg border border-border-subtle bg-surface p-6 transition hover:bg-surface-subtle my-8;
 	}
 
 	.feature-title {
