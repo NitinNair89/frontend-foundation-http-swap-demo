@@ -1,8 +1,8 @@
 "use client";
 
 import { axiosClient } from "@/clients/axios.client";
+import { setHttpClient } from "@/clients/bootstrap";
 import { fetchClient } from "@/clients/fetch.client";
-import { setHttpClient } from "@/clients/registry";
 import { FeatureCard } from "@/components/FeatureCard";
 import { usePosts } from "@/hooks/usePosts";
 

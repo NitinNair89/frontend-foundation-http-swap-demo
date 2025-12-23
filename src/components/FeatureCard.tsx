@@ -6,7 +6,7 @@ type FeatureCardProps = {
 export function FeatureCard({ title, description }: FeatureCardProps) {
 	return (
 		<article className="feature-card">
-			<h3 className="feature-title">{title}</h3>
+			<h2 className="feature-title">{title}</h2>
 			<p className="feature-description">{description}</p>
 		</article>
 	);

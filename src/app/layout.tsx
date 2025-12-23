@@ -13,13 +13,13 @@ export default function RootLayout({
 				<meta name="author" content="Nitin Chandran Nair" />
 				<meta
 					name="description"
-					content="Long-lived, swap-safe, production-grade frontend foundation"
+					content="This app demonstrates how to use the 'frontend-foundation' template to swap infrastructure implementations without changing UI code."
 				/>
 				<meta
 					name="keywords"
-					content="frontend, template, foundation, nextjs, tailwind"
+					content="frontend, nextjs, tailwindcss, typescript, http, axios, fetch"
 				/>
-				<title>Frontend Foundation Template</title>
+				<title>Frontend Foundation - HTTP swap demo</title>
 			</head>
 			<body className="min-h-screen bg-surface text-primary">
 				<ThemeProvider>

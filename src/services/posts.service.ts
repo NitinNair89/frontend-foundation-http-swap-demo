@@ -1,4 +1,4 @@
-import { getHttpClient } from "@/clients/registry";
+import { getHttpClient } from "@/clients/bootstrap";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL!;
 
